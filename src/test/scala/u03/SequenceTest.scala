@@ -10,6 +10,8 @@ class SequenceTest:
 
   val l: Sequence[Int] = Cons(10, Cons(20, Cons(30, Nil())))
 
+  val r: Sequence[Int] = Cons(20, Cons(10, Cons(30, Nil())))
+
   @Test def testSum() =
     assertEquals(0, sum(Nil()))
     assertEquals(60, sum(l))
@@ -44,6 +46,6 @@ class SequenceTest:
     assertEquals(Nil(), flatMap(Nil())(v => Cons(v, Nil())))
 
   @Test def testMin() =
-    assertEquals(Just(10), min(l))
+    assertEquals(Just(10), min(r))
     assertEquals(Just(1), min(Cons(1, Nil())))
     assertEquals(Empty(), min(Nil()))

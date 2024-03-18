@@ -13,6 +13,7 @@ class TuplesTest:
       tuple match 
         case ("a", 10) => true
         case _ => false
+        
     
   @Test def testEquality() =
     assertEquals(tuple, Tuple2("a", 10))
