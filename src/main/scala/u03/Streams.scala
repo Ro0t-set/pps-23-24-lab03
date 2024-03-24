@@ -43,6 +43,11 @@ object Streams extends App :
       case Cons(head, tail) if pred(head()) => cons(head(), takeWhile(tail())(pred))
       case _ => Empty()
 
+    def fill[A](n: Integer)(k: A): Stream[A]= n match
+      case n if n>0 => cons(k, fill(n-1)(k))
+      case _ => Empty()
+    
+
   end Stream
 
 @main def tryStreams =
@@ -56,3 +61,5 @@ object Streams extends App :
 
   lazy val corec: Stream[Int] = Stream.cons(1, corec) // {1,1,1,..}
   println(Stream.toList(Stream.take(corec)(10))) // [1,1,..,1]
+
+  println(Stream.toList(Stream.fill(10)("S")))

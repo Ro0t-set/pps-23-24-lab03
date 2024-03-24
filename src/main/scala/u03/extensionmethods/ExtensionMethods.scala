@@ -24,8 +24,7 @@ object ExtensionMethods extends App:
 
   // cannot chain calls!
   val seq = Cons(10, Cons(20, Cons(30, Nil())))
-  println:
-    Sequence.sum(map(filter(seq)(_ > 10))(_ + 1))
+
   
   // define size and filt as extension methods on a generic Sequence[A]
   extension [A](s: Sequence[A]) 
